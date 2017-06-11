@@ -1,5 +1,3 @@
-'use strict';
-
+require('bootstrap/dist/css/bootstrap.css');
 require('./style.css');
-//require('./bootstrap1.css');
 alert ('Hello');

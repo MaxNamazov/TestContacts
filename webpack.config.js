@@ -15,7 +15,7 @@ module.exports =  {
         library: "contacts"
     },
 
-    devtool: NODE_ENV == 'development' ? "eval" : null,
+    devtool: NODE_ENV == 'development' ? "eval" : false,
 
     module: {
         loaders: [
@@ -35,9 +35,18 @@ module.exports =  {
                 loader: "file-loader"
             },
             {
-                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'url?limit=10000&mimetype=image/svg+xml'
-            }
+                test: /\.(woff2?|eot|svg|ttf)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                use: [
+                  {
+                    loader: 'url-loader',
+                    options: {
+                      limit: 50000,
+                      mimetype: 'application/font-woff',
+                      name: 'assets/fonts/[hash].[ext]'
+                    }
+                  }
+                ]
+            },
         ]
     },
 
@@ -48,7 +57,7 @@ module.exports =  {
             NODE_ENV: JSON.stringify(NODE_ENV),
             LANG: JSON.stringify('ru')
         }),
-        new ExtractTextPlugin(__dirname + 'bundle.css')
+        new ExtractTextPlugin('bundle.css')
     ]
 };
 
