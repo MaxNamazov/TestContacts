@@ -1,6 +1,7 @@
-require('bootstrap/dist/css/bootstrap.css');
-require('./style.css');
-const lsHelper = require ('./lsHelper.js');
+import 'bootstrap/dist/css/bootstrap.css'
+import './style.css';
+
+import lsHelper from './lsHelper.js';
 
 document.addEventListener("DOMContentLoaded", function() {
     let contactsContainer = document.getElementById("contactsContainer");

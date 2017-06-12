@@ -8,7 +8,8 @@ if (allContacts === null){
 }
 console.log(allContacts);
 console.log(counter);
-module.exports = {
+
+export default {
     getAll : function() {
         return (allContacts);
     },
