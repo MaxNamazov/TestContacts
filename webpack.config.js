@@ -51,7 +51,10 @@ module.exports =  {
     },
 
     plugins: [
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: __dirname + '/frontend/index.html',
+            filename: 'index.html',
+        }),
         //new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV),
